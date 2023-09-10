@@ -28,7 +28,7 @@ int main() {
   cout << rec(n);
   return 0;
 }
-// https://prnt.sc/srnX931A99EH
+//https://prnt.sc/nXi2JZplgZYg
 
 //In The Name of ALLAH
 #include<bits/stdc++.h>
