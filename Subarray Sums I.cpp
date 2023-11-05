@@ -21,3 +21,6 @@ int main() {
    cout << cnt << "\n";
    return 0;
 }
+//https://prnt.sc/q7ynFLvLrp-D
+//https://prnt.sc/dPbQO_I3BHtG
+//https://prnt.sc/EZHA0d2PBBJQ
