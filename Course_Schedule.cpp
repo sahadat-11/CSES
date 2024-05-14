@@ -3,7 +3,7 @@
 using namespace std;
 
 const int N = 1e5 + 7;
-vector<int> adj[N];
+vector<int> g[N];
 bool vis[N];
 int indeg[N];
 int main() {
@@ -12,7 +12,7 @@ int main() {
   int n, m; cin >> n >> m;
   while(m--) {
     int u, v; cin >> u >> v;
-    adj[u].push_back(v);
+    g[u].push_back(v);
     indeg[v]++;
   }
   queue<int> q;
@@ -24,7 +24,7 @@ int main() {
     int cur = q.front();
     q.pop();
     ans.push_back(cur);
-    for(auto v : adj[cur]) {
+    for(auto v : g[cur]) {
       indeg[v]--;
       if(indeg[v] == 0) q.push(v);
     }
@@ -40,7 +40,7 @@ int main() {
 using namespace std;
 
 const int N = 1e5 + 7;
-vector<int> adj[N];
+vector<int> g[N];
 bool vis[N];
 int indeg[N];
 int main() {
@@ -49,7 +49,7 @@ int main() {
   int n, m; cin >> n >> m;
   while(m--) {
     int u, v; cin >> u >> v;
-    adj[u].push_back(v);
+    g[u].push_back(v);
     indeg[v]++;
   }
   vector<int> zero;
@@ -66,7 +66,7 @@ int main() {
     vis[cur] = true;
     zero.pop_back();
     ans.push_back(cur);
-    for(auto v : adj[cur]) {
+    for(auto v : g[cur]) {
       indeg[v]--;
       if(!vis[v] and indeg[v] == 0) {
         zero.push_back(v);
