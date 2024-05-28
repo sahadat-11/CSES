@@ -4,7 +4,7 @@ using namespace std;
 #define ll long long
 int n, k;
 bool isvalid(ll a[], ll t) {
-	ll sum = 0, cnt = 1;
+	ll sum = 0, cnt = 1;// if the total sum is less than t;
 	for(int i = 0; i < n; i++) {
 		if(a[i] > t) return 0;
 		if(a[i] + sum > t) {
