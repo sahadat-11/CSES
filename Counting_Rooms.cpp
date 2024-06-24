@@ -1,12 +1,10 @@
 //In The Name of ALLAH
 #include<bits/stdc++.h>
 using namespace std;
-const int N = 1005, mod = 1e9 + 7;
-#define int long long
-int n, m, ans, cnt;
+const int N = 1e3 + 7, mod = 1e9 + 7;
 bool vis[N][N];
-char a[N][N];
-
+string s[N];
+int n, m; 
 int dx[] = {0, 0, -1, +1, -1, +1, -1, +1};
 int dy[] = {+1, -1, 0, 0, +1, +1, -1, -1};
 
@@ -14,41 +12,31 @@ bool isValid(int x, int y) {
   return x >= 0 and x < n and y >= 0 and y < m;
 }
 
-void dfs(int i, int j) {
-  vis[i][j] = true;
+void dfs(int x, int y) {
+  vis[x][y] = true;
   for(int k = 0; k < 4; k++) {
-    int x = i + dx[k];
-    int y = j + dy[k];
-    if(isValid(x, y) and a[x][y] == '.' and !vis[x][y]) {
-      dfs(x, y);
-   }
- }
+      int nxt_x = x + dx[k];
+      int nxt_y = y + dy[k];
+      if(isValid(nxt_x, nxt_y) and s[nxt_x][nxt_y] == '.' and !vis[nxt_x][nxt_y]) {
+        dfs(nxt_x, nxt_y);
+     }
+  }
 }
-void solve() {
-   cin >> n >> m;
-   for(int i = 0; i < n; i++) {
-    for(int j = 0; j < m; j++) {
-      cin >> a[i][j];
-    }
-   }
-   for(int i = 0; i < n; i++) {
-    for(int j = 0; j < m; j++) {
-      if(a[i][j] == '.' and !vis[i][j]) {
-        ans++;
-        dfs(i, j);
-      }
-    }
-   }
-   cout << ans << "\n";
-}
+
 int32_t main() {
   ios_base::sync_with_stdio(0);
   cin.tie(0);
-  int t = 1, cs = 0; 
-  //cin >> t;
-  while(t--) {
-    //cout << "Case " << ++ cs << ": ";
-    solve();
+  cin >> n >> m;
+  for(int i = 0; i < n; i++) cin >> s[i];
+  int cnt = 0;
+  for(int i = 0; i < n; i++) {
+    for(int j = 0; j < m; j++) {
+      if(isValid(i, j) and s[i][j] == '.' and !vis[i][j]) {
+        cnt++;
+        dfs(i, j);
+     }
+    }
   }
+  cout << cnt << "\n";
   return 0;
 }

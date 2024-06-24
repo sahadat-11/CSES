@@ -29,6 +29,43 @@ int main() {
 
 // memory complexity high
 
+
+//In The Name of ALLAH
+#include<bits/stdc++.h>
+using namespace std;
+const int N = 105, X = 1e6 + 7, inf = 1e9 + 7;
+int dp[N][X];
+int n, required;
+int coins[N];
+
+int func(int i, int x) {
+  if(x > required) return inf;
+  if(i == n + 1) {
+    if(x == required) return 0;
+    return inf;
+  }
+  if(dp[i][x] != -1) return dp[i][x];
+  int ans = func(i + 1, x); // not take this
+  ans = min(ans, 1 + func(i, x + coins[i])); // take this
+  dp[i][x] = ans;
+  return dp[i][x];
+}
+
+int32_t main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  memset(dp, -1, sizeof dp);
+  cin >> n >> required;
+  for(int i = 1; i <= n; i++) {
+    cin >> coins[i];
+  }
+  int ans = func(1, 0);
+  if(ans == inf) cout << "-1\n";
+  else cout << ans << "\n";
+  return 0;
+}
+
+
 //In The Name of ALLAH
 #include<bits/stdc++.h>
 using namespace std;
