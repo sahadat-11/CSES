@@ -5,9 +5,12 @@ using namespace std;
 int main() {
   ios_base::sync_with_stdio(0);
   cin.tie(0);
-  int n, x; cin >> n >> x; int a[n + 1];
-  for(int i = 1; i <= n ; i++) cin >> a[i];
-  vector<pair<int,int>> v;
+  int n, x; cin >> n >> x;
+  vector<int> a(n + 1);
+  for(int i = 1; i <= n; i++) {
+    cin >> a[i];
+  } 
+  vector<pair<int, int>> v;
   for(int i = 1; i <= n ; i++) {
     v.push_back({a[i], i});
   }
@@ -29,3 +32,5 @@ int main() {
   cout << "IMPOSSIBLE";
   return 0;
 }
+
+// O(N * N * N)

@@ -1,0 +1,1 @@
+{"name":"Local: Array Division","url":"e:\\CSES\\Array Division.cpp","tests":[{"id":1719380563245,"input":"6\n1 0\n5 0\n1 2\n3 2\n1 2\n4 5\n1 2\n4 3\n1 2\n1 2\n998244353 0\n1000000000 999999999\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\CSES\\Array Division.cpp","group":"local","local":true}
